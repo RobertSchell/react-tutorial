@@ -26,6 +26,7 @@ const TableHeader = () => {
               <tr>
                 <th>Name</th>
                 <th>Job</th>
+                <th>Remove</th>
               </tr>
             </thead>
     );
@@ -55,12 +56,18 @@ const TableBody = (props) => {
 class Table extends Component {
     render() {
         //read props passed in from App.js
-        const { characterData, removeCharacter } = this.props;
+        const { 
+          characterData, 
+          removeCharacter
+        } = this.props;
 
         return (
           <table>
             <TableHeader/>
-            <TableBody data={characterData} removeCharacter={removeCharacter} />
+            <TableBody 
+              data={characterData} 
+              removeCharacter={removeCharacter}
+             />
           </table>
         )
       }
