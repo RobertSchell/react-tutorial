@@ -7,9 +7,10 @@ import React, { Component } from 'react';
 import Table from './Table' 
 import Form from './Form'
 import Clock from './Clock'
+import DeleteAll from './deleteAll'
 
 //components can also be functional 
-// {} evaluate javascript code
+//{} evaluate javascript code
 // function Welcome(props){
 //   return <h1>Welcome, {props.name}</h1>
 // }
@@ -70,10 +71,15 @@ class App extends Component {
         this.setState({characters: [...this.state.characters, character ]})
     }
     
-    // //delete all characters
-    // removeAllCharacters = () => {
-    //     this.setState({characters: []})
-    // }
+        // create method to remove all characters by returning an empty list
+    removeAllCharacters = () => {
+
+        // we can use setState to update the state
+        this.setState({
+            // set the state to an empty list
+            characters: [],
+        })
+    }
 
 
     /* you always have a render function
@@ -86,13 +92,14 @@ class App extends Component {
       // so table can use it later on 
       return (
         <div className="container"> 
+        {/* <Welcome name="Robert"/> */}
           <Clock />
           <Table 
             characterData={this.state.characters} 
             removeCharacter={this.removeCharacter}
-            //romoveAllCharacters={this.removeAllCharacters}
           /> 
           <Form addCharacter={this.addCharacter}/>
+          <DeleteAll removeAllCharacters={this.removeAllCharacters} />
         </div>
       )
     }
