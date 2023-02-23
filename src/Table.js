@@ -19,6 +19,10 @@ create two simple function components to make
 our table code more readable
 */
 
+// const DeleteAllButton = (props) => {
+//     return <button onClick={() => props.removeAllCharacters()}>Delete All</button>;
+// }
+
 //TABLE HEADER SIMPLE COMPONENT
 const TableHeader = () => {
     return (
@@ -34,7 +38,6 @@ const TableHeader = () => {
 
 //TABLE BODY SIMPLE COMPONENT 
 const TableBody = (props) => {
-
 
     //construct rows
     // use map to iterate over each row and wrap it in
@@ -58,10 +61,12 @@ class Table extends Component {
         //read props passed in from App.js
         const { 
           characterData, 
-          removeCharacter
+          removeCharacter,
+          //removeAllCharacters
         } = this.props;
 
         return (
+            
           <table>
             <TableHeader/>
             <TableBody 

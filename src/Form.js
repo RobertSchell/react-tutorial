@@ -8,13 +8,14 @@ class Form extends Component {
         super(props); //inheriting props from Component
 
         // set the initial state of the Form
-        this.initalState = {
+        this.initialState = {
+            //initial empty name and job input fields
             name: '',
             job: ''
         };
 
         //set our initial state to state.
-        this.state = this.initalState;
+        this.state = this.initialState;
     }
 
     handleChange = event => {
@@ -45,7 +46,9 @@ class Form extends Component {
         const { name, job } = this.state;
         return (
             <form onSubmit={this.onFormSubmit}>
-                <label for="name">Name :</label>
+                <br />
+                <h2>Add Characters Here:</h2>
+                <label htmlFor="name">Name :</label>
                 <input 
                     type="text" 
                     id="name" 
@@ -53,7 +56,7 @@ class Form extends Component {
                     value={name}
                     onChange={this.handleChange}
                     />
-                <label for="job">Job:</label>
+                <label htmlFor="job">Job:</label>
                 <input 
                     type="text" 
                     id="job" 
